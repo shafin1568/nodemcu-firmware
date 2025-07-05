@@ -79,7 +79,7 @@
 //#define LUA_USE_MODULES_WS2812
 //#define LUA_USE_MODULES_WS2812_EFFECTS
 //#define LUA_USE_MODULES_XPT2046
-
+#define LUA_USE_MODULES_DETENGINE
 //debug modules
 //#define LUA_USE_MODULES_SWTMR_DBG //SWTMR timer suspend Debug functions
 
