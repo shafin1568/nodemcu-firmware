@@ -270,3 +270,24 @@ jobs:
       run: ./tools/check_docs_module_linkage.sh
       shell: bash
 
+name: BuildNodeMCUFirmware
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build with Docker
+        run: docker run --rm \
+          -v "${{ github.workspace }}:/opt/nodemcu-firmware" \
+          marcelstoer/nodemcu-build
+
+      - name: Upload firmware artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: nodemcu-firmware
+          path: bin/*.bin
